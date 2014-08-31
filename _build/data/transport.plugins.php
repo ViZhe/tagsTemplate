@@ -7,7 +7,7 @@ $tmp = array(
 		'file' => 'tagstemplate',
 		'description' => '',
 		'events' => array(
-			'OnManagerPageInit' => array()
+			'OnWebPagePrerender' => array()
 		)
 	)
 );

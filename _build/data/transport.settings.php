@@ -3,10 +3,57 @@
 $settings = array();
 
 $tmp = array(
-	'some_setting' => array(
+	'useCookie' => array(
 		'xtype' => 'combo-boolean',
 		'value' => true,
-		'area' => 'tagstemplate_main',
+	),
+	'nameCookie' => array(
+		'xtype' => 'textfield',
+		'value' => 'ttTemplate',
+	),
+	'normalTag' => array(
+		'xtype' => 'textfield',
+		'value' => 'normal',
+	),
+	'mobileTag' => array(
+		'xtype' => 'textfield',
+		'value' => 'mobile',
+	),
+	'blindTag' => array(
+		'xtype' => 'textfield',
+		'value' => 'blind',
+	),
+	'variable' => array(
+		'xtype' => 'textfield',
+		'value' => 'theme',
+	),
+	'value_detect' => array(
+		'xtype' => 'textfield',
+		'value' => 'detect',
+	),
+	'value_normal' => array(
+		'xtype' => 'textfield',
+		'value' => 'normal',
+	),
+	'value_mobile' => array(
+		'xtype' => 'textfield',
+		'value' => 'mobile',
+	),
+	'value_blind' => array(
+		'xtype' => 'textfield',
+		'value' => 'blind',
+	),
+	'ipad' => array(
+		'xtype' => 'combo-boolean',
+		'value' => true,
+	),
+	'iphone' => array(
+		'xtype' => 'combo-boolean',
+		'value' => true,
+	),
+	'otherMobile' => array(
+		'xtype' => 'combo-boolean',
+		'value' => true,
 	),
 );
 

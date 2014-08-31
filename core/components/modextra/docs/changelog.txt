@@ -1,5 +1,0 @@
-Changelog for modExtra.
-
-modExtra 0.0.1
-==============
-- Initial release.

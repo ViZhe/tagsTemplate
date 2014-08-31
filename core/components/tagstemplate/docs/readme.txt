@@ -1,10 +1,9 @@
 --------------------
 tagsTemplate
 --------------------
-Author: John Doe <john@doe.com>
+Author: Viktor Zheleztsov <vizhe.cat@ya.ru>
 --------------------
 
-A basic Extra for MODx Revolution.
+Компонент основан на плагине Mobile Detection (автор: Zuriel Andrusyshyn).
 
-Feel free to suggest ideas/improvements/bugs on GitHub:
-http://github.com/username/tagsTemplate/issues
+Плагин служит разграничителем шаблонов для обычной(<normal>), мобильной(<mobile>) и особой(<blind>) версии сайта.

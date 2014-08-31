@@ -1,1 +1,0 @@
-<div id="tagstemplate-panel-home-div"></div>

@@ -64,6 +64,7 @@ foreach ($tmp as $k => $v) {
 		array(
 			'key' => 'tagstemplate_'.$k,
 			'namespace' => PKG_NAME_LOWER,
+			'area' => PKG_NAME_LOWER.'_main',
 		), $v
 	),'',true,true);
 

@@ -90,7 +90,7 @@ function show_blind() {
 	preserveTag($blindTag);
 }
 
-include("assets/components/mobiletemplate/mdetect.php");
+include("assets/components/tagstemplate/mdetect.php");
 $uao = new uagent_info();
 $var = $_GET[$variable];
 if($var == $value_mobile){

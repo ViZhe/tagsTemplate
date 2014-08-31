@@ -62,9 +62,9 @@ foreach ($tmp as $k => $v) {
 	$setting = $modx->newObject('modSystemSetting');
 	$setting->fromArray(array_merge(
 		array(
-			'key' => 'tagstemplate_'.$k,
+			'key' => PKG_NAME_LOWER.'_'.$k,
 			'namespace' => PKG_NAME_LOWER,
-			'area' => PKG_NAME_LOWER.'_main',
+			'area' => 'tagstemplate_main',
 		), $v
 	),'',true,true);
 

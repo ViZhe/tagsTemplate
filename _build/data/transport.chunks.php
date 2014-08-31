@@ -3,7 +3,7 @@
 $chunks = array();
 
 $tmp = array(
-	'tpl.modExtra.item' => array(
+	'tpl.tagsTemplate.item' => array(
 		'file' => 'item',
 		'description' => '',
 	),

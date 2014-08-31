@@ -1,7 +1,7 @@
 <?php
 
 /* define package */
-define('PKG_NAME', 'modExtra');
+define('PKG_NAME', 'tagsTemplate');
 define('PKG_NAME_LOWER', strtolower(PKG_NAME));
 
 define('PKG_VERSION', '0.0.1');

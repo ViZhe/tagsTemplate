@@ -1,57 +1,73 @@
-## modExtra
 
-modExtra is a base Extra template that is useful when wanting to create a new
-Extra for MODx Revolution. One can git archive from this repository to start
-with all the file structure for beginning MODx Extra development pre-setup.
+tagsTemplate
+--------------------------------------------------------------------------------
 
-## How to Export
+Компонент основан на плагине Mobile Detection (автор: Zuriel Andrusyshyn).
 
-First, clone this repository somewhere on your development machine:
 
-`git clone http://github.com/splittingred/modExtra.git ./`
+##Описание
 
-Then, create the target directory where you want to create the file.
+Плагин служит разграничителем шаблонов для обычной(```<normal>```), мобильной(```<mobile>```) и особой(```<blind>```) версии сайта.
 
-Then, navigate to the directory modExtra is now in, and do this:
+##Пример
 
-`git archive HEAD | (cd /path/where/I/want/my/new/repo/ && tar -xvf -)`
+```
+<normal>
+	<p>You use PC</p>
+	[[$chunk_for_normal]]
+</normal>
+<mobile>
+	<p>You use mobile</p>
+	[[$chunk_for_mobile]]
+</mobile>
+<blind>
+	<p>You see blind version</p>
+	[[$chunk_for_blind]]
+</blind>
+```
 
-(Windows users can just do git archive HEAD and extract the tar file to wherever
-they want.)
+##Алгоритм
 
-Then you can git init or whatever in that directory, and your files will be located
-there!
+1. Срабатывает системное событие ```OnWebPagePrerender```;
+2. Проверяем есть ли GET запрос;
+3. Если есть = выводим соответствующих тег, если нет идем дальше. При запросе ```?theme=detect```;
+	* Это iPhone? Да = выводим ```<mobile>```, если нет выводим ```<normal>```;
+	* Это iPad? Да = выводим ```<mobile>```, если нет выводим ```<normal>```;
+	* Это другие телефоны? Да = выводим ```<mobile>```, если нет выводим ```<normal>```;
+4. Проверяем есть ли кука;
+5. Если есть = выводим соответствующих тег, если нет идем дальше;
+6. Проверяем телифон ли это;
+7. Если телефон = выводим ```<mobile>```, если нет выводим ```<normal>```;
 
-## Configuration
+При этом если ```$useCookie = 1```, то мы записываем в куки название тега, чтобы не переключался шаблон, если мы задаем его принудительно через GET запрос.
 
-Now, you'll want to change references to modExtra in the files in your
-new copied-from-modExtra repo to whatever name of your new Extra will be. Once
-you've done that, you can create some System Settings:
+##Запросы
 
-- 'mynamespace.core_path' - Point to /path/to/my/extra/core/components/extra/
-- 'mynamespace.assets_url' - /path/to/my/extra/assets/components/extra/
+  - http://www.site.ru/?theme=detect
+  - http://www.site.ru/?theme=normal
+  - http://www.site.ru/?theme=mobile
+  - http://www.site.ru/?theme=blind
 
-Then clear the cache. This will tell the Extra to look for the files located
-in these directories, allowing you to develop outside of the MODx webroot!
+##Параметры
 
-## Information
+Название					| По умолчанию			| Описание
+----------------------------|-----------------------|----------------------------------------
+**useCookie**					| 1			| Использовать cookie.
+**nameCookie**					| ttTemplate			| Название cookie.
+**normalTag**					| normal			| Тег стандартной версии.
+**mobileTag**					| mobile			| Тег мобильной версии.
+**blindTag**					| blind			| Тег версии для слабовидящих.
+**variable**					| theme			| Имя переменной GET запроса.
+**value_detect**					| detect			| Значение переменной GET запроса для определения показываемого тега.
+**value_normal**					| normal			| Значение переменной GET запроса для normalTag.
+**value_mobile**					| mobile			| Значение переменной GET запроса для mobileTag.
+**value_blind**					| blind			| Значение переменной GET запроса для blindTag.
+**ipad**					| 1			| Считать ipad телефоном.
+**iphone**					| 1			| Считать iphone телефоном.
+**otherMobile**					| 1			| Считать другие телефоны телефонами.
 
-Note that if you git archive from this repository, you may not need all of its
-functionality. This Extra contains files and the setup to do the following:
 
-- Integrates a custom table of "Items"
-- A snippet listing Items sorted by name and templated with a chunk
-- A custom manager page to manage Items on
+##Мобильный детектор
 
-If you do not require all of this functionality, simply remove it and change the
-appropriate code.
-
-Also, you'll want to change all the references of 'modExtra' to whatever the
-name of your component is.
-
-## Copyright Information
-
-modExtra is distributed as GPL (as MODx Revolution is), but the copyright owner
-(Shaun McCormick) grants all users of modExtra the ability to modify, distribute
-and use modExtra in MODx development as they see fit, as long as attribution
-is given somewhere in the distributed source of all derivative works.
+За обнаружение мобильного устройства отвечает функция ```$uao```, которая в свою очеред получает ответ true/false из [MobileESP](https://mobileesp.googlecode.com/svn/PHP/mdetect.php).
+При необходимости можно расширить плагин для вывода определенным устрайствам определенный тег.

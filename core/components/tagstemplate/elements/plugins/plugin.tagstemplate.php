@@ -17,30 +17,27 @@
 /*	Options	*/
 global $useCookie,$nameCookie,$normalTag,$mobileTag,$blindTag,$value_normal,$value_mobile,$value_blind;
 
-$useCookie = 1;
-$nameCookie = 'ttTemplate';
-// Теги сущностей
-$normalTag = 'normal';
-$mobileTag = 'mobile';
-$blindTag = 'blind';
-// Название переменной и её значения
-$variable = 'theme';
-$value_detect = 'detect';
-$value_normal = 'normal';
-$value_mobile = 'mobile';
-$value_blind = 'blind';
-// Дополнительные условия разбора
-$ipad = 1;
-$iphone = 1;
-$otherMobile = 1;
+$useCookie = $modx->getOption('tagstemplate_useCookie','',true);
+$nameCookie = $modx->getOption('tagstemplate_nameCookie','','ttTemplate');
+$normalTag = 'normal';$modx->getOption('tagstemplate_normalTag','','normal');
+$mobileTag = 'mobile';$modx->getOption('tagstemplate_mobileTag','','mobile');
+$blindTag = 'blind';$modx->getOption('tagstemplate_blindTag','','blind');
+$variable = 'theme';$modx->getOption('tagstemplate_variable','','theme');
+$value_detect = 'detect';$modx->getOption('tagstemplate_value_detect','','detect');
+$value_normal = 'normal';$modx->getOption('tagstemplate_value_normal','','normal');
+$value_mobile = 'mobile';$modx->getOption('tagstemplate_value_mobile','','mobile');
+$value_blind = 'blind';$modx->getOption('tagstemplate_value_blind','','blind');
+$ipad = $modx->getOption('tagstemplate_ipad','',true);
+$iphone = $modx->getOption('tagstemplate_uiphone','',true);
+$otherMobile = $modx->getOption('tagstemplate_otherMobile','',true);
 
 /*	Cookies work	*/
 
 function tmSetCookie($val) {
 	global $useCookie,$nameCookie;
-   if ($useCookie == 1) {
+	if ($useCookie == 1) {
 		setcookie($nameCookie,$val,time()+604800, "/", "", 0);
-   }
+	}
 }
 function tmGetCookie() {
 	global $nameCookie;

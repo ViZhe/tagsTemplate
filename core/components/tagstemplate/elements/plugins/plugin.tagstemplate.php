@@ -19,14 +19,14 @@ global $useCookie,$nameCookie,$normalTag,$mobileTag,$blindTag,$value_normal,$val
 
 $useCookie = $modx->getOption('tagstemplate_useCookie','',true);
 $nameCookie = $modx->getOption('tagstemplate_nameCookie','','ttTemplate');
-$normalTag = 'normal';$modx->getOption('tagstemplate_normalTag','','normal');
-$mobileTag = 'mobile';$modx->getOption('tagstemplate_mobileTag','','mobile');
-$blindTag = 'blind';$modx->getOption('tagstemplate_blindTag','','blind');
-$variable = 'theme';$modx->getOption('tagstemplate_variable','','theme');
-$value_detect = 'detect';$modx->getOption('tagstemplate_value_detect','','detect');
-$value_normal = 'normal';$modx->getOption('tagstemplate_value_normal','','normal');
-$value_mobile = 'mobile';$modx->getOption('tagstemplate_value_mobile','','mobile');
-$value_blind = 'blind';$modx->getOption('tagstemplate_value_blind','','blind');
+$normalTag = $modx->getOption('tagstemplate_normalTag','','normal');
+$mobileTag = $modx->getOption('tagstemplate_mobileTag','','mobile');
+$blindTag = $modx->getOption('tagstemplate_blindTag','','blind');
+$variable = $modx->getOption('tagstemplate_variable','','theme');
+$value_detect = $modx->getOption('tagstemplate_value_detect','','detect');
+$value_normal = $modx->getOption('tagstemplate_value_normal','','normal');
+$value_mobile = $modx->getOption('tagstemplate_value_mobile','','mobile');
+$value_blind = $modx->getOption('tagstemplate_value_blind','','blind');
 $ipad = $modx->getOption('tagstemplate_ipad','',true);
 $iphone = $modx->getOption('tagstemplate_uiphone','',true);
 $otherMobile = $modx->getOption('tagstemplate_otherMobile','',true);

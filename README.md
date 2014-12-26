@@ -26,6 +26,21 @@ tagsTemplate
 </blind>
 ```
 
+Не проверял, но [говорят](https://modx.pro/help/4408/) при большом контенте показывается белый лист, Николай Загумённов решил это так:
+```
+<normal>
+	[[!$[[!#COOKIE.ttTemplate:is=`normal`:or:is=``:or:if=`[[!#GET.theme]]`:is=`normal`:then=`.n.front`:else=``]]]]
+</normal>
+<mobile>
+	[[!$[[!#COOKIE.ttTemplate:is=`mobile`:or:if=`[[!#GET.theme]]`:is=`mobile`:then=`.m.front`:else=``]]]]
+</mobile>
+<blind>
+	[[!$[[!#COOKIE.ttTemplate:is=`blind`:or:if=`[[!#GET.theme]]`:is=`blind`:then=`.b.front`:else=``]]]]
+</blind>
+```
+
+
+
 ##Алгоритм
 
 1. Срабатывает системное событие ```OnWebPagePrerender```;

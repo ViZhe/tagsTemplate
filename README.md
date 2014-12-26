@@ -26,16 +26,16 @@ tagsTemplate
 </blind>
 ```
 
-Не проверял, но [говорят](https://modx.pro/help/4408/) при большом контенте показывается белый лист, Николай Загумённов решил это так:
+Не проверял, но [говорят](https://modx.pro/help/4408/) при большом контенте показывается белый лист, Николай Загумённов решил это как-то так:
 ```
 <normal>
-	[[!$[[!#COOKIE.ttTemplate:is=`normal`:or:is=``:or:if=`[[!#GET.theme]]`:is=`normal`:then=`.n.front`:else=``]]]]
+	[[!$[[!#COOKIE.ttTemplate:is=`normal`:or:is=``:or:if=`[[!#GET.theme]]`:is=`normal`:then=`normal.chunk`]]]]
 </normal>
 <mobile>
-	[[!$[[!#COOKIE.ttTemplate:is=`mobile`:or:if=`[[!#GET.theme]]`:is=`mobile`:then=`.m.front`:else=``]]]]
+	[[!$[[!#COOKIE.ttTemplate:is=`mobile`:or:if=`[[!#GET.theme]]`:is=`mobile`:then=`mobile.chunk`]]]]
 </mobile>
 <blind>
-	[[!$[[!#COOKIE.ttTemplate:is=`blind`:or:if=`[[!#GET.theme]]`:is=`blind`:then=`.b.front`:else=``]]]]
+	[[!$[[!#COOKIE.ttTemplate:is=`blind`:or:if=`[[!#GET.theme]]`:is=`blind`:then=`blind.chunk`]]]]
 </blind>
 ```
 
